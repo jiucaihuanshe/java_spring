@@ -26,12 +26,25 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
 
+
+      <!-- Spring中提供了一个工厂，这个工厂的作用是根据配置信息创建对象，
+      	Spring中提供了一个容器，这个容器用于存储对象，以及管理对象之间的依赖关系（has a）(继承或实现、关联关系、依赖关系)
+       is a	(继承或实现)
+       has a(关联关系)
+       use a(依赖关系（弱）)
+       class Student extends Person{ //is a
+       		Computer c; //has a
+       		
+       		void study(){
+       			Math.random();//use a
+       		}
+       }
+       -->
+      
       <bean id="date1" class="java.util.Date"/>
       
-      <!-- Class.forName("helloService").newInstance() 
-      <bean id="helloService" 
-            class="bean.HelloService"/>-->
+      <!-- Class.forName("helloService").newInstance() -->
       
-      
+      <bean id="helloService" class="practice.com.beans.HelloService"/>
        
 </beans>

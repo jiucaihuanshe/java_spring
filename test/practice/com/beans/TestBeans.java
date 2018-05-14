@@ -15,7 +15,12 @@ public class TestBeans {
 		//System.out.println(ctx);
 		//2.获取我们需要的对象
 		Date date1 = (Date) ctx.getBean("date1");
+		Date date2 = ctx.getBean("date1",Date.class);
 		System.out.println(date1);
+		System.out.println(date2);
+		
+		HelloService helloService = ctx.getBean("helloService",HelloService.class);
+		System.out.println(helloService);
 		//3.释放资源
 		ctx.close();
 	}
