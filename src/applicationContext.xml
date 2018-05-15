@@ -47,4 +47,7 @@
       
       <bean id="helloService" class="practice.com.beans.HelloService"/>
        
+       
+       <bean id="c1" class="java.util.GregorianCalendar"/>
+       <bean id="c2" class="java.util.Calendar" factory-method="getInstance"/>
 </beans>
