@@ -44,10 +44,22 @@
       <bean id="date1" class="java.util.Date"/>
       
       <!-- Class.forName("helloService").newInstance() -->
-      
-      <bean id="helloService" class="practice.com.beans.HelloService"/>
+      <!-- scope作用域的属性
+      		1、singleton		spring容器中此bean的实例只有一份(单例设计)
+      		2、prototype		spring容器中每次获取bean都会创建新一个新的对象(多例)
+      		当对象的scope的值为prototype时，此时对象的生命周期不再由spring容器控制。
+       -->
+      <bean id="helloService" class="practice.com.beans.HelloService" scope="prototype"
+      init-method="init" destroy-method="destroy" lazy-init="true"/>
        
-       
+       <!-- 构建子类类型对象 -->
        <bean id="c1" class="java.util.GregorianCalendar"/>
+       <!-- 通过Calendar的静态方法getInstance获取对象 -->
        <bean id="c2" class="java.util.Calendar" factory-method="getInstance"/>
+      <!-- 指定调用哪个bean对象getTime方法 -->
+       <bean id="date2" factory-bean="c2" factory-method="getTime"/>
+       
+       <bean id="sdf" class="java.text.SimpleDateFormat">
+       		<constructor-arg value="yyyy/MM/dd"/>
+       </bean>
 </beans>
