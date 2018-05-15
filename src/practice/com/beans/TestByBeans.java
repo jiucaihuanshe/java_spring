@@ -1,5 +1,7 @@
 package practice.com.beans;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -26,6 +28,20 @@ public class TestByBeans {
 		System.out.println(c3);
 		Calendar c4 = ctx.getBean("c2", Calendar.class);
 		System.out.println(c4);
+		
+		Date c5 = ctx.getBean("date2",Date.class);//返回这类型.class
+		System.out.println(c5);
+		
+		HelloService helloService1 = ctx.getBean("helloService", HelloService.class);
+		HelloService helloService2 = ctx.getBean("helloService", HelloService.class);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat();
+		String s = sdf.format(new Date());
+		System.out.println("result:"+s);
+		
+		SimpleDateFormat sdf1 = ctx.getBean("sdf",SimpleDateFormat.class);
+		String ss = sdf1.format(new Date());
+		System.out.println(ss);
 		ctx.close();
 	}
 
