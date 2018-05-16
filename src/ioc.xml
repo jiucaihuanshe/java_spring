@@ -24,15 +24,15 @@
        http://www.springframework.org/schema/data/jpa 
        http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
 		
 		<!-- 通过set方式实现值的注入 -->
-		<bean id="dataSource1" class="practice.com.beans.DataSource">
+		<!-- <bean id="dataSource1" class="practice.com.beans.DataSource">
 			<property name="driver" value="com.mysql.jdbc.Driver"/>
 			<property name="url" value="jdbc:mysql:///test"/>
 			<property name="username" value="root"/>
 			<property name="password" value="root"/>
-		</bean> 
+		</bean> --> 
 
 		<!-- 通过构造函数注入值  -->
 		<bean  id="dataSource2" class="practice.com.beans.DataSource">
@@ -46,7 +46,7 @@
 			对应的set方法，然后调用set方法为属性赋值
 		 -->
 		<bean id="jdbcTemplate" class="practice.com.beans.JdbcTemplate">
-			<property name="dataSource" ref="dataSource1"/>
+			<property name="dataSource" ref="dataSource2"/>
 		</bean>
 		
 		<!-- 构造注入：通过对象指定的构造方法构建方法，并将实际参数的
@@ -54,5 +54,9 @@
 		 -->
 		<bean id="jdbcTemplate2" class="practice.com.beans.JdbcTemplate">
 			<constructor-arg ref="dataSource2"/>
+		</bean>
+		
+		<bean id="jdbcTemplate3" class="practice.com.beans.JdbcTemplate" 
+			autowire="byType">
 		</bean>
 </beans>
