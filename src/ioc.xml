@@ -56,6 +56,19 @@
 			<constructor-arg ref="dataSource2"/>
 		</bean>
 		
+		<!-- 
+			1)byName:由spring获取bean对象中的set方法，取方法名set单词后面的内容，第一字母
+			小写，然后根据这个名字在容器中进行查找(比对bean元素的id)，假如找到对应名字，则
+			将这个名字对应的对象注入给对应set方法的参数，也有可能找到名字相同但类型不同的
+			对象，此时就会抛出异常。
+			2)byType:由spring获取bean对象中的set方法，取方法中参数的类型，然后根据这个类型
+			在容器中进行查找(比对bean元素的类型)，假如找到对应类型，则将这个类型对应的对象
+			注入给对应set方法的参数，也有可能找到了类型相同的多个对象，此时就会抛出异常。
+			3)constructor:由spring获取bean对象中所有的构造函数，依据构造函数中参数类型在
+			spring容器查找相匹配的对象，找到则注入，没找到则不执行。假如找到多个则先进行
+			参数名匹配，名字也不匹配则不进行注入。
+		 -->
+		
 		<bean id="jdbcTemplate3" class="practice.com.beans.JdbcTemplate" 
 			autowire="byType">
 		</bean>
