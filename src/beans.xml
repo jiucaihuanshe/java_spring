@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans>
+<beans
+    default-lazy-init="default"
+    xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
+       http://www.springframework.org/schema/mvc   
+       http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd   
+       http://www.springframework.org/schema/tx   
+       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd   
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/util 
+       http://www.springframework.org/schema/util/spring-util-4.3.xsd
+       http://www.springframework.org/schema/data/jpa 
+       http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
+		
    <bean id="date1" class="java.util.Date"/>
    <bean id="date2" class="java.util.Date"/>
+   
+   <!-- spring运行时会扫描此包，包括字包中的.class文件
+   		然后将有@Component,@Controller,@Service,@Repository
+   		等注解描述的类构建成对象，然后存储到map,key默认为类
+   		名，单类名的第一个字母小写。
+   		1)@Controller 一般用于描述控制层对象
+   		2)@Service 一般用于描述业务层对象
+   		3)@Repository 一般用于描述持久层对象
+    -->
+   <context:component-scan base-package="practice.com.service"/>
+
+	<context:component-scan base-package="practice.com.project"/>
+
+
+
+
+
 </beans>
