@@ -1,9 +1,10 @@
-package practice.com.project.service;
+package practice.com.project.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import practice.com.project.dao.MessageDao;
+import practice.com.project.service.MessageService;
 /**
  * 通过@Autowired实现对象属性值的注入，默认是按属性类型进行值的注入，假如类中提供了
  * 与此属性有对应关系的构造函数则执行这个构造函数直接对属性初始化，如果没有，底层通过
