@@ -13,6 +13,7 @@ import practice.com.project.service.MessageService;
  * 
  * 当按类型进行注入时，假如容器中存在多个类相同的对象时可能会注入失败，此时还可以借助
  * @Qualifier 这个注解指定按名字进行注入。
+ * 说明：在使用@Qualifier注解时前提必须已经使用了@Autowired注解
  */
 @Service
 public class MessageServiceImpl implements MessageService {
