@@ -12,6 +12,7 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void insertUser(String user) {
 		System.out.println("UserDaoImpl.insertUser()");
+		System.out.println("user="+user);
 	}
 
 }

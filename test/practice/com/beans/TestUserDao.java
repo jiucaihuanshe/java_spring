@@ -2,7 +2,7 @@ package practice.com.beans;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import practice.com.project.dao.UserDao;
+import practice.com.project.service.UserService;
 
 public class TestUserDao {
 	private static ClassPathXmlApplicationContext ctx;
@@ -14,8 +14,9 @@ public class TestUserDao {
 	}
 	public static void main(String[] args) {
 		init();
-		UserDao userDao = ctx.getBean("userDaoImpl", UserDao.class);
-		System.out.println(userDao);
+		UserService userService = ctx.getBean("userServiceImpl", UserService.class);
+		System.out.println(userService);
+		userService.saveUser("wangwu");
 		close();
 	}
 }
