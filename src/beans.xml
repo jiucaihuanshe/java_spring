@@ -41,13 +41,13 @@
 
 	<context:component-scan base-package="practice.com.project.test"/>
 
-	<bean id="ig" class-"practice.com.project.test.IdGenerator">
+	<!-- <bean id="ig" class="practice.com.project.test.IdGenerator">
 		<property name="configs">
 			 <array>  
             <value>classpath:config.properties</value>  
        		 </array>  
 		</property>
-	</bean>
-	<util:properties id="cfg" location="classpath:config.properties" />
+	</bean> 
+	<util:properties id="cfg" location="classpath:config.properties" />-->
 
 </beans>
