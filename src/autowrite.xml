@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+    default-lazy-init="default"
+    xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
+       http://www.springframework.org/schema/mvc   
+       http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd   
+       http://www.springframework.org/schema/tx   
+       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd   
+       http://www.springframework.org/schema/aop 
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/util 
+       http://www.springframework.org/schema/util/spring-util-4.3.xsd
+       http://www.springframework.org/schema/data/jpa 
+       http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd"> 
+		
+		<!-- 
+			1)byName:由spring获取bean对象中的set方法，取方法名set单词后面的内容，第一字母
+			小写，然后根据这个名字在容器中进行查找(比对bean元素的id)，假如找到对应名字，则
+			将这个名字对应的对象注入给对应set方法的参数，也有可能找到名字相同但类型不同的
+			对象，此时就会抛出异常。
+			2)byType:由spring获取bean对象中的set方法，取方法中参数的类型，然后根据这个类型
+			在容器中进行查找(比对bean元素的类型)，假如找到对应类型，则将这个类型对应的对象
+			注入给对应set方法的参数，也有可能找到了类型相同的多个对象，此时就会抛出异常。
+			3)constructor:由spring获取bean对象中所有的构造函数，依据构造函数中参数类型在
+			spring容器查找相匹配的对象，找到则注入，没找到则不执行。假如找到多个则先进行
+			参数名匹配，名字也不匹配则不进行注入。
+		 -->
+		<!--byName 根据方法set后首字母小写，在bean中查找这个id,进行匹配
+		<bean id="dateSource1" class="practice.com.beans.DateSoruce"></bean>
+		<bean id="test" class="practice.com.beans.Test" autowire="byName">
+		</bean> -->
+		<!-- byType 根据set方法的参数类型进行匹配 
+		<bean id="dateSource" class="practice.com.beans.DateSoruce"></bean>
+		<bean id="test" class="practice.com.beans.Test" autowire="byType"></bean>-->
+		<bean id="dateSource" class="practice.com.beans.DateSoruce"></bean>
+		<bean id="test" class="practice.com.beans.Test" autowire="constructor"></bean>
+</beans>
