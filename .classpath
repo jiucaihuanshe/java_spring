@@ -11,5 +11,8 @@
 	<classpathentry kind="lib" path="lib/spring-expression-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/dom4j-1.6.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis-1.0.b2.jar"/>
+	<classpathentry kind="lib" path="lib/ant-1.9.6.jar"/>
+	<classpathentry kind="lib" path="lib/asm-5.2.jar"/>
+	<classpathentry kind="lib" path="lib/cglib-3.2.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
