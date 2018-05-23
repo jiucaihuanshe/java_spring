@@ -28,7 +28,7 @@ public class AnnotationAppContext {
 		//3.基于这个路径资源(url)，构建一个文件对象
 		File file = new File(url.getFile());
 		
-		//4.获取词目录中指定标准的文件
+		//4.获取此目录中指定标准的文件
 		File[] fs = file.listFiles(new FileFilter() {
 			
 			@Override
@@ -57,6 +57,7 @@ public class AnnotationAppContext {
 				Class<?> c = Class.forName(clsName);
 				if(c.isAnnotationPresent(CGB1803.class)){
 					Object obj = c.newInstance();
+					System.out.println(obj);
 					beanMap.put(key, obj);
 				}
 			} catch (Exception e) {
